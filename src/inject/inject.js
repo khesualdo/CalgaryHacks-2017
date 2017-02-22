@@ -1,5 +1,16 @@
+var centerParent = document.createElement("div");
+centerParent.setAttribute("id", "centerParent");
+
 var timer = document.createElement("div");
+
 timer.setAttribute('id', 'cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434');
+
+timer.appendChild(document.createTextNode("This Page is Blocked By Timeout and will be Unlocked In:"));
+timerText = document.createElement("div");
+timerText.style.fontSize = '15vw';
+timer.appendChild(timerText);
+
+centerParent.appendChild(timer);
 
 // Removes HTML inside the body tag and display the timer
 function updateTimer(duration) {
@@ -14,19 +25,32 @@ function updateTimer(duration) {
 // Removes HTML inside the body tag
 function removeBodyHTML() {
 	window.stop();
-	
+
 	var bodyTag = document.body;
+	bodyTag.setAttribute('id', 'newBody');
 
 	if (!bodyTag) return;
 
 	// Clear the original body tag
 	bodyTag.innerHTML = "";
 
-	// Set the body background color
-	document.body.style.backgroundColor = "darkgreen";
-
 	// Append the timer to the body tag
 	bodyTag.appendChild(timer);
+}
+
+
+function formatSeconds(sec) {
+	let hrs = Math.floor(sec / 3600);
+    let min = Math.floor(sec % 3600 / 60);
+    sec = sec % 60;
+
+    let display = "";
+
+    if (hrs > 0) display += hrs + "h ";
+    display += min + "m ";
+    display += sec + "s";
+
+    return display;
 }
 
 // Displays the timer
@@ -34,16 +58,11 @@ function removeBodyHTML() {
 // Else block for some amount of time
 function displayTimer(amountOfSeconds) {
 	if (amountOfSeconds > -1) {
-		// Convert seconds to HH:MM:SS
-		let date = new Date(null);
-		date.setSeconds(amountOfSeconds);
-
-		let result = date.toISOString().substr(11, 8);
-		timer.innerHTML = result;
+		timerText.innerText = formatSeconds(amountOfSeconds);
 	}
 	else if (amountOfSeconds == -1) {
 		// Block infinitly
-		timer.innerHTML = '∞';
+		timerText.innerHTML = '∞';
 	}
 }
 

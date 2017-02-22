@@ -1,14 +1,32 @@
-#cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434 {
-    color: white;
-    font-size: 20vw;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+#centerParent {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
-/*#74b07a1dbf693032a3577e878c8d3af45b3eaf5be0213cc86471cfd860a7df0f{
+#cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434 {
+    color: white;
+    font-size: 4vh;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: table;
+    width: 100%;
+}
+
+#newBody {
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    background: #282828;
+    background: -moz-linear-gradient(top, rgba(40, 40, 40, 1) 0%, rgba(74, 74, 74, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40, 40, 40, 1)), color-stop(100%,rgba(74, 74, 74, 1)));
+    background: -webkit-linear-gradient(top, rgba(40, 40, 40, 1) 0%,rgba(74, 74, 74, 1) 100%);
+    background: -o-linear-gradient(top, rgba(40, 40, 40, 1) 0%,rgba(74, 74, 74, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(40, 40, 40, 1) 0%,rgba(74, 74, 74, 1) 100%);
+    background: linear-gradient(to bottom, rgba(40, 40, 40, 1) 0%,rgba(74, 74, 74, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282828', endColorstr='#4A4A4A',GradientType=0 );
+}
+
+/*#74b07a1dbf693032a3577e878c8d3af45b3eaf5be0213cc86471cfd860a7df0f {
     z-index: 3000 !important;
 	box-shadow: inset 0 0 10em darkgreen !important;
 	background: linear-gradient( to bottom, #5d9634, #5d9634 50%, #538c2b 50%, #538c2b ) !important;
