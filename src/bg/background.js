@@ -6,8 +6,25 @@
 
 
 //example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+    sendResponse(sender);
+});
+
+
+var seconds = 500;
 
 function updateInterval() {
+	seconds -= 1;
+	// UPDATE ALL THE TABS HERE
+
+	chrome.tabs.query({}, function(tabs) {
+		for (var tab of tabs) {
+			chrome.tabs.sendMessage(tab.id, {type: "updateInterval", duration: seconds});
+		}
+	});
+};
+
+// Update interval every second
+setInterval(() => {
+	updateInterval();
+}, 1000);
