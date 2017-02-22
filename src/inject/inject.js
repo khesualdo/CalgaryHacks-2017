@@ -1,22 +1,25 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-			clearInterval(readyStateCheckInterval);
 
-			// ----------------------------------------------------------
-			// This part of the script triggers when page is done loading
-			console.log("Hello. This message was sent from scripts/inject.js");
-			// ----------------------------------------------------------
 
-			chrome.tabs.getCurrent(function(tab) {
-			    // var url = tabs[0].url;
-					console.log(tab);
-			});
+var bodyTag = document.getElementsByTagName('body')[0];
 
-			chrome.tabs.query({ currentWindow: true, active: true }, function (tabArray){
-				console.log(tabArray);
-			});
+// Removes HTML inside the body tag and display the timer
+function init(){
 
-	}
-	}, 10);
-});
+	//removeBodyHTML();
+	displayTimer();
+}
+
+// Removes HTML inside the body tag
+function removeBodyHTML(){
+	bodyTag.innerHTML = " ";
+}
+
+// Displays the timer
+// If the amountOfSeconds is -1, then block infinitly
+// Else block for some amount of time
+function displayTimer(amountOfSeconds){
+
+
+}
+
+init();
