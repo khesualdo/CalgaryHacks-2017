@@ -20,6 +20,9 @@
     "http://*/*",
     "https://*/*"
   ],
+  "background": {
+    "scripts": ["src/bg/background.js"]
+  },
   "content_scripts": [
     {
       "matches": [
