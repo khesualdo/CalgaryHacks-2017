@@ -2,22 +2,7 @@
 $('#datepick').datetimepicker();
 
 //http://www.jqueryscript.net/time-clock/Easy-Responsive-jQuery-Duration-Picker-Plugin-duration-picker-js.html
-$("#duration").durationPicker({
-	hours: 
-	{
-		label: "h",
-	    min: 0,
-	    max: 999
-  	},
-  	minutes: 
-  	{
-	    label: "m",
-    	min: 0,
-    	max: 59
-  	},
-  	classname: 'form-control',
-  	responsive: true
-});
+$("#duration").durationPicker();
 
 var blockList = document.getElementById("blockList");
 
