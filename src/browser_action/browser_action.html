@@ -1,71 +1,74 @@
 <!doctype html>
-<style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-	}
-	h1 {
-		font-size: 2em;
-	}
-</style>
+<html>
+	<head>
+		
+		<!-- CSS -->
 
-<head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		
+		
+		<link href="css/bootstrap-datetimepicker.css" rel="stylesheet"> <!-- DateTimePicker CSS -->
+		<link href="css/duration-picker.css" rel="stylesheet"> <!-- Duration Picker CSS -->
 
-	<link href="css/duration-picker.css" rel="stylesheet">
-	<!--
-	Latest compiled and minified JavaScript 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
-	<script src="js/moment.js" type="text/javascript"></script>
-	<script src="js/transition.js" type="text/javascript"></script>
-	<script src="js/collapse.js" type="text/javascript"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
+		<style type="text/css">
+			#mainPopup {
+				padding: 10px;
+				height: 200px;
+				width: 400px;
+				font-family: Helvetica, Ubuntu, Arial, sans-serif;
+			}
+			h1 {
+				font-size: 2em;
+			}
+		</style>
 
-	<script src="js/duration-picker.js"></script>
+		<!-- JavaScript -->
 
-</head>
-<body>
-	<div id="mainPopup">
-		<h1 style="color:red">Timeout</h1>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script> <!-- JQuery -->
+		<script src="js/moment.js" type="text/javascript"></script> <!-- Moment.js -->
+		<script src="js/bootstrap.min.js" type="text/javascript"></script> <!-- Bootstrap -->
+		<script src="js/bootstrap-datetimepicker.min.js" type="text/javascript"></script> <!-- DateTimePicker JS -->
+		<script src="js/duration-picker.js"></script> <!-- Duration Picker JS -->
 
-		<div>
-			Pick a url:
-			<div>
-				<input type='text' id='url'>
-			<div>
-		</div>
-		<div>
-			Pick a date:
+	</head>
+	<body>
+		<div id="mainPopup">
 			<div class="container">
-    			<div class="row">
-        			<div class='col-sm-6'>
-            			<input type='text' class="form-control" id='datetimepicker4' />
-			        </div>
-			    </div>
-			</div>
-		</div>
-		<div>
-		    Pick the duration:
-		    <div>
-				<input type="text" id="duration" name="duration">
-			</div>
-		</div>
-		<br>
-		<p>Blocking List:</p>
-		<div style="border-style: solid; border-width: 1px;">
-			<dl id="blockList" type="1">
-			</dl>
-		</div>
-		<br>
+				<div>
+					<form class="form-group" role="form">
+						<label for="url">Website Filter:</label><br>
+						<div class="input-group">
+						  	<span class="input-group-addon" id="website-prefix">http(s)://</span>
+						  	<input type="text" class="form-control" id="url" aria-describedby="website-prefix">
+						</div>
+					</form>
+				</div>
+				<div style="position: relative;">
+					<form class="form-group" role="form">
+						<label for="datepick">Date and Time:</label>
+						<input type='text' class="form-control" id='datepick'>
+					</form>
+				</div>
+				<div>
+					<form class="form-group" role="form">
+						<label for="duration">Duration:</label><br>
+				    	<input type="text" id="duration" name="duration">
+				    </form>
+				</div>
+				<br>
+				<p>Blocking List:</p>
+				<div style="border-style: solid; border-width: 1px;">
+					<dl id="blockList" type="1">
+					</dl>
+				</div>
+				<br>
 
-		<button id="addBlockButton" type="button" style="cursor:pointer">Time Out!</button>
-	</div>
-	<script src="browser_action.js" type="text/javascript"></script>
-</body>
+				<button id="addBlockButton" type="button">Time Out!</button>
+
+			</div>
+		</div>
+		<script src="browser_action.js" type="text/javascript"></script>
+	</body>
+</html>

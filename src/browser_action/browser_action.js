@@ -1,9 +1,8 @@
 
-//http://eonasdan.github.io/bootstrap-datetimepicker/#no-icon-input-field-only
-$('#datetimepicker4').datetimepicker({});
+$('#datepick').datetimepicker();
+
 //http://www.jqueryscript.net/time-clock/Easy-Responsive-jQuery-Duration-Picker-Plugin-duration-picker-js.html
-$("#duration").durationPicker(
-{
+$("#duration").durationPicker({
 	hours: 
 	{
 		label: "h",
