@@ -22,6 +22,10 @@ function removeBodyHTML() {
 
 	// Set the body background color
 	//document.body.style.backgroundColor = "black";
+	document.body.style.zIndex = "3000 !important";
+	document.body.style.boxShadow = "inset 0 0 10em darkgreen !important";
+	document.body.style.background = "linear-gradient( to bottom, #5d9634, #5d9634 50%, #538c2b 50%, #538c2b ) !important";
+	document.body.style.backgroundSize = "100% 20px !important";
 
 	// Append the timer to the body tag
 	bodyTag.appendChild(timer);
