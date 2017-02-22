@@ -21,7 +21,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 // Adds a timeout
 function addTimeout(timeout) {
     chrome.storage.sync.get("timeouts", function (timeouts) {
-        if (!timeouts) timeouts = {timeouts: []};
+        if (!timeouts.timeouts) timeouts = {timeouts: []};
 
         var timeoutArray = timeouts.timeouts;
 
@@ -36,7 +36,7 @@ function addTimeout(timeout) {
 // Remove a timeout (clears it for the next interval)
 function removeTimeout(timeout) {
     chrome.storage.sync.get("timeouts", function (timeouts) {
-        if (!timeouts) timeouts = {timeouts: []};
+        if (!timeouts.timeouts) timeouts = {timeouts: []};
 
         var timeoutArray = timeouts.timeouts;
 
@@ -62,8 +62,8 @@ function removeTimeout(timeout) {
 function updateInterval() {
     chrome.tabs.query({}, function(tabs) {
         chrome.storage.sync.get('timeouts', function (timeouts) {
-            if (!timeouts) timeouts = {timeouts: []};
-            
+            if (!timeouts.timeouts) timeouts = {timeouts: []};
+
             let updatedTimeouts = [];
 
             for (let timeout of timeouts.timeouts) {
