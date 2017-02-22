@@ -13,10 +13,9 @@ function formatSeconds(sec) {
     return display;
 }
 
-function createTimeout()
-{
+function createTimeout() {
 	let timeoutList = document.getElementById("timeoutList");
-	let url = document.getElementById("url").value;
+	let url = document.getElementById("url").value.replace("www.", "");
 	let date = document.getElementById("datepick").value;
 	let duration = parseInt(document.getElementById("duration").value);
 	
@@ -36,6 +35,25 @@ function createTimeout()
 		chrome.extension.sendMessage(obj, () => {});
 	}
 }
+
+function populateTimeouts() {
+	chrome.extension.sendMessage({type: "getTimeouts"}, (timeouts) => {
+		timeouts = timeouts.timeouts;
+
+		let timeoutList = document.getElementById("timeoutList");
+
+		for (let timeout of timeouts) {
+			let newTimeout = document.createElement("div");
+			let date = moment.unix(timeout.startAt).format('MM/DD/YYYY h:mm A');
+
+			newTimeout.appendChild(document.createTextNode(timeout.filters[0] + " - " + date + " - " + formatSeconds(timeout.duration)));
+
+			timeoutList.appendChild(newTimeout);
+		}
+	});
+}
+
+populateTimeouts();
 
 $("#createTimeout").click(() => {
 	createTimeout();
