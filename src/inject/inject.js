@@ -1,8 +1,6 @@
 var bodyTag = document.getElementsByTagName('body')[0];
 var timer = document.createElement("div");
 timer.setAttribute('id', 'cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434');
-timer.style.color = "white";
-timer.style.fontSize = "20vw";
 
 var counterColor = '';
 

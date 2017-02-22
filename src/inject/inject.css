@@ -1,3 +1,9 @@
-/**
- * Place your custom CSS styles here.
- **/
+#cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434{
+	color: white;
+	font-size: 20vw;
+
+	position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
