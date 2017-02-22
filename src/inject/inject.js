@@ -13,6 +13,8 @@ function updateTimer(duration) {
 
 // Removes HTML inside the body tag
 function removeBodyHTML() {
+	window.stop();
+	
 	var bodyTag = document.body;
 
 	if (!bodyTag) return;
