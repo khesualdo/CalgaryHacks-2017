@@ -58,7 +58,11 @@ function updateInterval() {
 			}
 
 			// update the filters in the db
-			chrome.storage.sync.set({'timeouts': updatedTimeouts}, () => {});
+
+			// Only update if something changed to get under write quotas
+			if (updatedTimeouts.length != timeouts.length) {
+				chrome.storage.sync.set({'timeouts': updatedTimeouts}, () => {});
+			}
 		});
 	});
 };
