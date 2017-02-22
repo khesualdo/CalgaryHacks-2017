@@ -8,9 +8,9 @@ var counterColor = '';
 function updateTimer(duration){
 
 	// Erase body if a div tag with an id of cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434 does not exit
-	if( document.getElementById('cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434') == null ){
-		removeBodyHTML();
-	}
+	// if( document.getElementById('cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434') == null ){
+	// 	removeBodyHTML();
+	// }
 	displayTimer(duration);
 }
 
@@ -51,5 +51,7 @@ function displayTimer(amountOfSeconds){
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
   	if (request.type == "updateInterval") {
   		updateTimer(request.duration);
-  	}
+  	}else if(request.type == "endInterval"){
+
+		}
 });
