@@ -32,32 +32,42 @@
 
 
 
-    <script src="browser_action.js" type="text/javascript"></script>
+    
 </head>
+<body>
+	<div id="mainPopup">
+		<h1 style="color:red">Timeout</h1>
 
-<div id="mainPopup">
-<h1 style="color:red">Timeout</h1>
-<p>To shut this popup down, edit the manifest file and remove the "default popup" key. To edit it, just edit ext/browser_action/browser_action.html. The CSS is there, too.</p>
+		<div>
+			Pick a url:
+			<div>
+				<input type='text' id='url'>
+			<div>
+		</div>
+		<div>
+			Pick a date:
+			<div>
+		        <input type='text' class="form-control" id='datetimepicker4'>
+		    </div>
+		</div>
+		<div>
+		    Pick the duration:
+		    <div>
+				<input type="text" id="duration" name="duration">
+			</div>
+		</div>
+		<br>
+		<div style="border-style: solid; border-width: 1px;">
+			<ol id="blockList" type="1">
+		  		<li>Coffee</li>
+		  		<li>Tea</li>
+		  		<li>Milk</li>
+			</ol>
+		</div>
+		<br>
 
-<div>
-	Pick a url:
-	<div>
-		<input type='text' id='url' />
-	<div>
-</div>
-<div>
-	Pick a date:
-	<div>
-        <input type='text' class="form-control" id='date' />
-    </div>
-</div>
-<div>
-    Pick the duration:
-    <div>
-		<input type="text" id="duration" name="duration">
+		<button id="addBlockButton" type="button" style="cursor:pointer">Time Out!</button>
+
 	</div>
-</div>
-
-<button type="button" style="cursor:pointer">Time Out!</button>
-
-</div>
+	<script src="browser_action.js" type="text/javascript"></script>
+</body>
