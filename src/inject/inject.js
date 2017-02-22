@@ -27,9 +27,10 @@ function removeBodyHTML() {
 	window.stop();
 
 	var bodyTag = document.body;
-	bodyTag.setAttribute('id', 'newBody');
 
 	if (!bodyTag) return;
+	
+	bodyTag.setAttribute('id', 'newBody');
 
 	// Clear the original body tag
 	bodyTag.innerHTML = "";

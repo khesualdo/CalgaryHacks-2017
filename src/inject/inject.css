@@ -26,10 +26,3 @@
     background: linear-gradient(to bottom, rgba(40, 40, 40, 1) 0%,rgba(74, 74, 74, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282828', endColorstr='#4A4A4A',GradientType=0 );
 }
-
-/*#74b07a1dbf693032a3577e878c8d3af45b3eaf5be0213cc86471cfd860a7df0f {
-    z-index: 3000 !important;
-	box-shadow: inset 0 0 10em darkgreen !important;
-	background: linear-gradient( to bottom, #5d9634, #5d9634 50%, #538c2b 50%, #538c2b ) !important;
-    background-size: 100% 20px !important;
-}*/
