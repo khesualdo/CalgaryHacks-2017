@@ -1,32 +1,42 @@
-
 $('#datepick').datetimepicker();
-
-//http://www.jqueryscript.net/time-clock/Easy-Responsive-jQuery-Duration-Picker-Plugin-duration-picker-js.html
 $("#duration").durationPicker();
 
-var blockList = document.getElementById("blockList");
+function formatSeconds(sec) {
+	let hrs = Math.floor(sec / 3600);
+    let min = Math.floor(sec % 3600 / 60);
 
-function addToBlockList()
-{
-	var url = document.getElementById("url").value;
-	var date = document.getElementById("datetimepicker4").value;
-	var duration = document.getElementById("duration").value;
-	//document.getElementById("test").innerText = "abc";
-	
-	var newBlockUrl = document.createElement("dt");
-	var newBlockDate = document.createElement("dd");
-	var newBlockDuration = document.createElement("dd");
-	newBlockUrl.appendChild(document.createTextNode(url));
-	newBlockDate.appendChild(document.createTextNode("Date: " + date));
-	newBlockDuration.appendChild(document.createTextNode("Duration: " + duration));
-	blockList.appendChild(newBlockUrl);
-	blockList.appendChild(newBlockDate);
-	blockList.appendChild(newBlockDuration);
+    let display = "";
+
+    if (hrs > 0) display += hrs + "h ";
+    display += min + "m";
+
+    return display;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var temp = document.getElementById('addBlockButton');
-    temp.addEventListener('click', function() {
-        addToBlockList();
-    });
+function createTimeout()
+{
+	let timeoutList = document.getElementById("timeoutList");
+	let url = document.getElementById("url").value;
+	let date = document.getElementById("datepick").value;
+	let duration = parseInt(document.getElementById("duration").value);
+	
+	if (url && date && duration > 0) {
+		let newTimeout = document.createElement("div");
+		newTimeout.appendChild(document.createTextNode(url + " - " + date + " - " + formatSeconds(duration)));
+
+		timeoutList.appendChild(newTimeout);
+
+		let obj = {
+			startAt: Date.parse(date)/1000,
+			duration: duration,
+			filters: [url],
+			type: "addTimeout"
+		};
+
+		chrome.extension.sendMessage(obj, () => {});
+	}
+}
+
+$("#createTimeout").click(() => {
+	createTimeout();
 });

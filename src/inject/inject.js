@@ -4,7 +4,7 @@ timer.setAttribute('id', 'cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418a
 // Removes HTML inside the body tag and display the timer
 function updateTimer(duration) {
 
-	// Erase body if a div tag with an id of cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434 does not exit
+	// Erase body if a div tag with an id of cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434 does not exist
 	if(document.getElementById('cd94ec90364da372eb1a980c7ffb36e5654d7e2cd92cb810be418adb36fe2434') == null){
 		removeBodyHTML();
 	}
@@ -30,28 +30,26 @@ function removeBodyHTML() {
 // Displays the timer
 // If the amountOfSeconds is -1, then block infinitly
 // Else block for some amount of time
-function displayTimer(amountOfSeconds){
+function displayTimer(amountOfSeconds) {
+	if (amountOfSeconds > -1) {
+		// Convert seconds to HH:MM:SS
+		let date = new Date(null);
+		date.setSeconds(amountOfSeconds);
 
-		if(amountOfSeconds > -1){
-
-			// Convert seconds to HH:MM:SS
-			var date = new Date(null);
-			date.setSeconds(amountOfSeconds);
-			var result = date.toISOString().substr(11, 8);
-
-			timer.innerHTML = result;
-		}else if(amountOfSeconds == -1){
-
-			// Block infinitly
-			timer.innerHTML = '∞';
-
-		}
+		let result = date.toISOString().substr(11, 8);
+		timer.innerHTML = result;
+	}
+	else if (amountOfSeconds == -1) {
+		// Block infinitly
+		timer.innerHTML = '∞';
+	}
 }
 
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
   	if (request.type == "updateInterval") {
   		updateTimer(request.duration);
-  	}else if(request.type == "endInterval"){
-			window.location.reload();
-		}
+  	}
+  	else if(request.type == "endInterval"){
+		window.location.reload();
+	}
 });

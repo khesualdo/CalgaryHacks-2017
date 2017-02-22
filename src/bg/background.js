@@ -1,32 +1,58 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
-
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
-
-
-//example of using a message handler from the inject scripts
+// Bind event listener
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-	if (request.type == "addTimeout") addTimeout();
+	if (request.type == "addTimeout") {
+		console.log(request);
 
-    sendResponse();
+		addTimeout(request);
+		sendResponse();
+	}
+	else if (request.type == "getTimeouts") {
+		chrome.storage.sync.get('timeouts', function (timeouts) {
+			sendResponse(timeouts.timeouts);
+		});
+	}
+	else if (request.type == "removeTimeout") {
+		removeTimeout(request);
+	}
 });
 
-
-
-function addTimeout(timeout) {//function that is subscribed to event
-    chrome.storage.sync.get("timeouts", function (timeouts) {//gets timeouts, then calls timeouts function
+// Adds a timeout
+function addTimeout(timeout) {
+    chrome.storage.sync.get("timeouts", function (timeouts) {
         var timeoutArray = timeouts.timeouts;
 
         delete timeout.type;
 
         timeoutArray.push(timeout);
 
-        chrome.storage.sync.set({ 'timeouts': timeoutArray }, function () { })
+        chrome.storage.sync.set({'timeouts': timeoutArray}, () => {});
     });
-
 }
 
+// Remove a timeout (clears it for the next interval)
+function removeTimeout(timeout) {
+	chrome.storage.sync.get("timeouts", function (timeouts) {
+        var timeoutArray = timeouts.timeouts;
+
+        delete timeout.type;
+
+        let index = timeoutArray.findIndex((e) => {
+        	if (e.startAt == timeout.startAt && e.duration == timeout.duration && e.filters == timeout.filters) {
+        		return true;
+        	}
+        	else return false;
+        });
+
+        if (index == -1) return;
+
+        timeoutArray[index].startAt = 0;
+        timeoutArray[index].duration = 0;
+
+        chrome.storage.sync.set({'timeouts': timeoutArray}, () => {});
+    });
+}
+
+// Loops and updates all tabs
 function updateInterval() {
 	chrome.tabs.query({}, function(tabs) {
 		chrome.storage.sync.get('timeouts', function (timeouts) {
@@ -55,6 +81,9 @@ function updateInterval() {
 
 					updatedTimeouts.push(timeout);
 				}
+				else {
+					updatedTimeouts.push(timeout);
+				}
 			}
 
 			// update the filters in the db
@@ -67,20 +96,7 @@ function updateInterval() {
 	});
 };
 
-let meme = {'timeouts':
-		[
-			{
-				startAt: 1487729062,
-				duration: 9000,
-				filters: ['google.com', 'google.ca']
-			}
-		]
-	}
-
-chrome.storage.sync.set(meme, function () {
-		console.log("Updated DB with example");
-});
-
+// Returns tabs that match the url array
 function getTabsThatMatch(tabs, urls) {
 	var returnTabs = [];
 
@@ -97,7 +113,7 @@ function getTabsThatMatch(tabs, urls) {
 	return returnTabs;
 }
 
-// Update interval every second
+
 setInterval(() => {
 	updateInterval();
 }, 500);

@@ -17,9 +17,6 @@
 				width: 400px;
 				font-family: Helvetica, Ubuntu, Arial, sans-serif;
 			}
-			h1 {
-				font-size: 2em;
-			}
 		</style>
 
 		<!-- JavaScript -->
@@ -57,14 +54,13 @@
 				    </form>
 				</div>
 				<div class="text-center">
-					<button type="addBlockButton" class="btn btn-primary">Create Timeout</button>
+					<button class="btn btn-primary" id="createTimeout">Create Timeout</button>
 				</div>
 
 				<hr></hr>
-				<p>Blocking List:</p>
-				<div style="border-style: solid; border-width: 1px;">
-					<dl id="blockList" type="1">
-					</dl>
+				
+				<div id="timeoutList">
+					
 				</div>
 				<br>
 			</div>
