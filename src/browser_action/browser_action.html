@@ -19,7 +19,8 @@
 
 	<link href="css/duration-picker.css" rel="stylesheet">
 
-	<!-- Latest compiled and minified JavaScript 
+	Latest compiled and minified JavaScript 
+	<!--
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
 	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<script src="js/moment.js" type="text/javascript"></script>
@@ -30,9 +31,6 @@
 
 	<script src="js/duration-picker.js"></script>
 
-
-
-    
 </head>
 <body>
 	<div id="mainPopup">
@@ -46,9 +44,13 @@
 		</div>
 		<div>
 			Pick a date:
-			<div>
-		        <input type='text' class="form-control" id='datetimepicker4'>
-		    </div>
+			<div class="container">
+    			<div class="row">
+        			<div class='col-sm-6'>
+            			<input type='text' class="form-control" id='datetimepicker4' />
+			        </div>
+			    </div>
+			</div>
 		</div>
 		<div>
 		    Pick the duration:
@@ -57,17 +59,14 @@
 			</div>
 		</div>
 		<br>
+		<p>Blocking List:</p>
 		<div style="border-style: solid; border-width: 1px;">
-			<ol id="blockList" type="1">
-		  		<li>Coffee</li>
-		  		<li>Tea</li>
-		  		<li>Milk</li>
-			</ol>
+			<dl id="blockList" type="1">
+			</dl>
 		</div>
 		<br>
 
 		<button id="addBlockButton" type="button" style="cursor:pointer">Time Out!</button>
-
 	</div>
 	<script src="browser_action.js" type="text/javascript"></script>
 </body>
