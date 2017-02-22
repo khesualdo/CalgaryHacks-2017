@@ -15,7 +15,7 @@ function formatSeconds(sec) {
 
 function createTimeout() {
 	let timeoutList = document.getElementById("timeoutList");
-	let url = document.getElementById("url").value.replace("www.", "");
+	let url = document.getElementById("url").value.replace("www.", "").replace("https://", "").replace("http://", "").split("/")[0];
 	let date = document.getElementById("datepick").value;
 	let duration = parseInt(document.getElementById("duration").value);
 	
