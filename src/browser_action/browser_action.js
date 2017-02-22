@@ -1,35 +1,41 @@
-	$('#datetimepicker4').datetimepicker({});
 
-	$("#duration").durationPicker(
+$('#datetimepicker4').datetimepicker({});
+$("#duration").durationPicker(
+{
+	hours: 
 	{
-		hours: 
-		{
-			label: "h",
-		    min: 0,
-		    max: 999
-	  	},
-	  	minutes: 
-	  	{
-		    label: "m",
-	    	min: 0,
-	    	max: 59
-	  	},
-	  	classname: 'form-control',
-	  	responsive: true
-	});
+		label: "h",
+	    min: 0,
+	    max: 999
+  	},
+  	minutes: 
+  	{
+	    label: "m",
+    	min: 0,
+    	max: 59
+  	},
+  	classname: 'form-control',
+  	responsive: true
+});
 
 var blockList = document.getElementById("blockList");
-console.log(document.getElementById("url"));
-var url = document.getElementById("url").value;
-//var date = document.getElementById("date").value;
-var duration = document.getElementById("duration");
-
 
 function addToBlockList()
 {
-	var newBlockItem = document.createElement("li");
-	newBlockItem.appendChild(document.createTextNode(url));
-	blockList.appendChild(newBlockItem);
+	var url = document.getElementById("url").value;
+	var date = document.getElementById("datetimepicker4").value;
+	var duration = document.getElementById("duration").value;
+	//document.getElementById("test").innerText = "abc";
+	
+	var newBlockUrl = document.createElement("dt");
+	var newBlockDate = document.createElement("dd");
+	var newBlockDuration = document.createElement("dd");
+	newBlockUrl.appendChild(document.createTextNode(url));
+	newBlockDate.appendChild(document.createTextNode("Date: " + date));
+	newBlockDuration.appendChild(document.createTextNode("Duration: " + duration));
+	blockList.appendChild(newBlockUrl);
+	blockList.appendChild(newBlockDate);
+	blockList.appendChild(newBlockDuration);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
