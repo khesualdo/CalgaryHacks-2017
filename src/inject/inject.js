@@ -21,7 +21,7 @@ function removeBodyHTML() {
 	bodyTag.innerHTML = "";
 
 	// Set the body background color
-	document.body.style.backgroundColor = "black";
+	//document.body.style.backgroundColor = "black";
 
 	// Append the timer to the body tag
 	bodyTag.appendChild(timer);
