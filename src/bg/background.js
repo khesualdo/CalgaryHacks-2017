@@ -96,4 +96,4 @@ function getTabsThatMatch(tabs, urls) {
 // Update interval every second
 setInterval(() => {
 	updateInterval();
-}, 1000);
+}, 500);
