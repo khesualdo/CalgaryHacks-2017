@@ -12,8 +12,19 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     sendResponse();
 });
 
-function addTimeout(timeout) {
-	console.log("Adding that timeout");
+
+
+function addTimeout(timeout) {//function that is subscribed to event
+    chrome.storage.sync.get("timeouts", function (timeouts) {//gets timeouts, then calls timeouts function
+        var timeoutArray = timeouts.timeouts;
+
+        delete timeout.type;
+
+        timeoutArray.push(timeout);
+
+        chrome.storage.sync.set({ 'timeouts': timeoutArray }, function () { })
+    });
+
 }
 
 function updateInterval() {
