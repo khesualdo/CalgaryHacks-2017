@@ -36,6 +36,14 @@ function createTimeout() {
 	}
 }
 
+function getCurrentUrl() {
+	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    let url = tabs[0].url;
+
+    document.getElementById("url").value = url;
+  });
+}
+
 function populateTimeouts() {
 	chrome.extension.sendMessage({type: "getTimeouts"}, (timeouts) => {
 		timeouts = timeouts.timeouts;
@@ -57,4 +65,7 @@ populateTimeouts();
 
 $("#createTimeout").click(() => {
 	createTimeout();
+});
+$("#getCurrentUrl").click(() => {
+	getCurrentUrl();
 });
