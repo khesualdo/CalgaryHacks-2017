@@ -37,11 +37,11 @@ function createTimeout() {
 }
 
 function getCurrentUrl() {
-	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-    let url = tabs[0].url;
-
-    document.getElementById("url").value = url;
-  });
+	chrome.extension.sendMessage({type: "getActiveTab"}, (tab) => {
+		if (!tab) return;
+		
+		document.getElementById("url").value = tab.url.replace("http://", "").replace("https://", "");
+	});
 }
 
 function populateTimeouts() {
@@ -66,6 +66,7 @@ populateTimeouts();
 $("#createTimeout").click(() => {
 	createTimeout();
 });
+
 $("#getCurrentUrl").click(() => {
 	getCurrentUrl();
 });

@@ -14,6 +14,11 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             sendResponse(timeouts);
         });
     }
+    else if (request.type == "getActiveTab") {
+        chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+            sendResponse(tabs[0]);
+        });
+    }
 
     return true; // return sendResponse async
 });
