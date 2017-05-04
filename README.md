@@ -1,6 +1,8 @@
 # Timeout
 ---
 
+![Timeout Chrome Extension](Timeout/screenshot.png)
+
 ## Inspiration
 Many people find it difficult to study when having the distraction of Facebook, YouTube, online games, etc... and we thought there should be an easy way to block these sites for different periods of time.
 
