@@ -3,8 +3,6 @@
 
 ![Timeout Chrome Extension](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/479/306/datas/gallery.jpg)
 
-<img style="display: block; margin: 0 auto;" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/479/306/datas/gallery.jpg" alt="Timeout Chrome Extension">
-
 ## Inspiration
 Many people find it difficult to study when having the distraction of Facebook, YouTube, online games, etc... and we thought there should be an easy way to block these sites for different periods of time.
 
