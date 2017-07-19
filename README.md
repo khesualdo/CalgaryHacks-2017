@@ -13,6 +13,17 @@ Timeout allows you to set specific blocks on any website by specifying the start
 
 All "Timeouts" or blocks are synced across all your Chrome devices on your Google accounts and across Chrome restarts.
 
+## How to run
+
+1. Visit `chrome://extensions` in your browser.
+2. Ensure that the Developer mode checkbox in the top right-hand corner is checked.
+3. Click **Load unpacked extension…** to pop up a file-selection dialog.
+4. Navigate to the directory in which your extension files live, and select it (select the entire folder).
+
+Alternatively, you can drag and drop the directory where your extension files live onto `chrome://extensions` in your browser to load it.
+
+If the extension is valid, it'll be loaded up and active right away! If it's invalid, an error message will be displayed at the top of the page. Correct the error, and try again.
+
 ## How we built it
 Since this is a Chrome extension, it is completely built in JavaScript/HTML/CSS. We use the Bootstrap CSS framework and Datetime/Duration picker libraries. Timeouts are saved to 'sync' Chrome storage (fallback onto 'local' if the user isn't signed into a Google account).
 
