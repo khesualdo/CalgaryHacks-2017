@@ -104,6 +104,7 @@ function updateInterval() {
                 if (currentTime > timeoutEnd) {
 
                     // Tell any applicable tabs the timeout ended
+                    // Send `endInterval` message to `inject.js` to reload the tab
                     for (let tab of matchedTabs) {
                         chrome.tabs.sendMessage(tab.id, {type: "endInterval"});
                     }
@@ -111,6 +112,8 @@ function updateInterval() {
                 else if (currentTime >= timeout.startAt) {
                     
                     // Update each tab
+                    // Send `updateInterval` message to `inject.js` to 
+                    // update the timer info being displayed
                     for (let tab of matchedTabs) {
                         chrome.tabs.sendMessage(tab.id, {type: 'updateInterval', duration: timeoutEnd - currentTime});
                     }
