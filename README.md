@@ -4,7 +4,7 @@
 
 [Download on Chrome Web Store](https://chrome.google.com/webstore/detail/timeout/kdpkkmnahkcfdmaajglmfoemcokbeoad)
 
-## Describe your contribution
+## My contribution
 I worked on inserting the timer into the webpage (`insert.js`) once the user has created a timer.
 
 ## Inspiration
