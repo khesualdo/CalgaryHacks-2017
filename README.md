@@ -5,7 +5,7 @@
 [Download on Chrome Web Store](https://chrome.google.com/webstore/detail/timeout/kdpkkmnahkcfdmaajglmfoemcokbeoad)
 
 ## My contribution
-I worked on inserting the timer into the webpage (`insert.js`) once the user has created a timer.
+I worked on inserting the timer into the webpage (`insert.js`) once the user created a timeout.
 
 ## Inspiration
 Many people find it difficult to study when having the distraction of Facebook, YouTube, online games, etc... and we thought there should be an easy way to block these sites for different periods of time.
