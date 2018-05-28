@@ -2,6 +2,12 @@
 
 ![Timeout Chrome Extension](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/479/306/datas/gallery.jpg)
 
+Theme: "Automation and Optimization". 
+
+Optimize your time on the web with Timeout. A Chrome Extension that locally blocks a website for a specified amount of time.
+
+[Devpost](https://devpost.com/software/timeout-1p7y8t)
+
 [Download on Chrome Web Store](https://chrome.google.com/webstore/detail/timeout/kdpkkmnahkcfdmaajglmfoemcokbeoad)
 
 ## My contribution
