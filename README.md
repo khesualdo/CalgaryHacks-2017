@@ -11,7 +11,7 @@ Optimize your time on the web with Timeout. A Chrome Extension that locally bloc
 [Download on Chrome Web Store](https://chrome.google.com/webstore/detail/timeout/kdpkkmnahkcfdmaajglmfoemcokbeoad)
 
 ## My contribution
-I worked on inserting the timer into the webpage (`insert.js`) once the user created a timeout.
+I worked on integrating the timer into the webpage - `insert.js`, once the user created a timeout in our extension.
 
 ## Inspiration
 Many people find it difficult to study when having the distraction of Facebook, YouTube, online games, etc... and we thought there should be an easy way to block these sites for different periods of time.
